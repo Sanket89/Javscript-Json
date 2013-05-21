@@ -1,0 +1,58 @@
+//Pagination Example
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <title>DataTables live example</title>
+    <style type="text/css">
+      @import "/media/css/demo_page.css";
+      @import "/media/css/demo_table.css";
+    </style>
+    <script type="text/javascript" language="javascript" src="C:/Users/Sanket/Desktop/RD/jquery.js"></script>
+     <!--<script type="text/javascript" language="javascript" src="C:/Users/Sanket/Desktop/RD/jquery.dataTables.js"></script>-->
+    <!--<script type="text/javascript" language="javascript" src="C:/Users/Sanket/Desktop/RD/jquery.dataTables.min.js></script>-->
+    <script class="jsbin" src="http://datatables.net/download/build/jquery.dataTables.nightly.js"></script>
+  </head>
+  <body id="dt_example">
+    <div id="container">
+      <h3>Json to Dynamic Table</h3>
+<input type="show" id="counter" value="0"/>      
+<input type="button" value="Next Values" onclick="load()"/>
+<div id="table"></div>      
+
+<script>
+function load(){
+var i=0;
+var j=0;
+var table = " <table border=\"1\", cellspacing=\"2\", cellpadding=\"10\" class=display id=example> "+
+ "<tr>" +
+ "<th>Name:   </th>" +
+ "<th>Age:    </th>" +
+ "<th>Marks:  </th>" +
+ "</tr>";
+
+var obj = JSON.parse('{"student":[{"name":"1 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"2 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"3 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"4 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"5 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"6 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"7 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"8 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"9 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"10 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"11 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"12 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"13 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"14 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"15 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"16 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"17 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"18 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"19 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"20 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"21 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"22 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"},{"name":"23 Oscar","age":"23","marks":"16.5"},{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"}]}'); 
+
+var curbatch=parseInt(document.getElementById("counter").value),batch=10;
+document.getElementById("counter").value=(curbatch+1).toString();
+var maxlen=obj.student.length;
+while(i<=batch)
+{
+  j=(curbatch*batch)+i;
+table += "<tr><td>"+obj.student[j].name+"</td><td>"+obj.student[j].age+"</td><td>"+obj.student[j].marks+"</td>";
+table += "</tr>";
+i++;
+}
+document.getElementById("table").innerHTML=table;
+ }
+</script>     
+</div>
+</body>
+ <script>
+ $(document).ready(function() {
+  $('#example').dataTable();
+  } );
+  </script>
+</html>
