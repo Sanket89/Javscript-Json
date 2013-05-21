@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+<table id="students" border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="student">
+            <td>Oscar</td>
+            <td>23</td>
+            <td>16.5</td>        
+        </tr>
+        <tr class="student">
+            <td>Antonio</td>
+            <td>32</td>
+            <td>14</td>        
+        </tr>
+        <tr class="student">
+            <td>Jessica</td>
+            <td>21</td>
+            <td>19</td>        
+        </tr>
+    </tbody>
+</body>
+</table>
+
+<!--Convert above html table in json as follows:-->
+
+<!--{"students":[{"name":"Oscar","age":"23","marks":"16.5",{"name":"Antonio","age":"32","marks":"14"},{"name":"Jessica","age":"21","marks":"19"}]}-->
+
+<script type="text/javascript">
+
+var json=[];
+var table=document.getElementById("students");
+var tbody=table.getElementsByTagName("tbody")[0];
+var j=tbody.getElementsByTagName("tr").length;
+for(var i=0;i<j;i++)
+{
+  var k=tbody.getElementsByTagName("tr")[i].getElementsByTagName("td");
+  json[i]={"name":k[0].innerHTML,"age":k[1].innerHTML,"marks":k[2].innerHTML}
+}
+finaljson={"students":json}
+JSON.stringify(finaljson);
+alert(JSON.stringify(finaljson));
+</script>
+<input type="button" onclick="tabletojson();">test</button>
+</html>
