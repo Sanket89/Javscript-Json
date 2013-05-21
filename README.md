@@ -1,7 +1,7 @@
 Javscript-Json
 ==============
 
-JavaScrip t&amp; Json Solutions
+JavaScript&amp; Json Solutions
 
 .gitnore-In this module records are shown in batches of 10.
 Its, basically a pagination example to display records from json format
